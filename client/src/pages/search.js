@@ -26,8 +26,11 @@ class Search extends React.Component {
 
     searchBook = query => {
         API.getBook(query)
-            .then(res => this.setState({ books: res.data.items.map(bookData => this.makeBook(bookData)) }))
-            .catch(err => console.error(err));
+            .then(res => {
+                this.setState({ books: res.data.items.map(bookData => this.makeBook(bookData)) })
+                console.log(res)
+            })
+            .catch(err => console.error('this is --->' + err));
     };
 
     handleInputChange = event => {
