@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
+import "./style.css"
 
 class Results extends Component {
 
@@ -36,16 +37,16 @@ class Results extends Component {
                             {this.props.books.map(result => (
                                 <div className="card mb-3" key={result._id}>
                                     <div className="row">
-                                        <div className="col-md-2">
+                                        <div className="col-md-3">
                                             <img alt={result.title} className="img-fluid" src={result.image} />
                                         </div>
-                                        <div className="col-md-10">
+                                        <div className="col-md-9">
                                             <div className="card-body">
                                                 <h5 className="card-title">{result.title} by {result.authors}</h5>
                                                 <p className="card-text">{result.description}</p>
                                                 <div>
                                                     <a href={result.link} className="btn badge-pill btn-outline-dark mt-3"  >View</a>
-                                                    <button onClick={() => this.handleSave(result)} className="btn badge-pill btn-outline-warning mt-3 ml-3" >
+                                                    <button onClick={() => this.handleSave(result)} className="btn badge-pill btn-outline-success mt-3 ml-3" >
                                                         {this.state.savedBooks.map(book => book._id).includes(result._id) ? "Unsave" : "Save"}
                                                     </button>
                                                 </div>

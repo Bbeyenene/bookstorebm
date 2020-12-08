@@ -1,3 +1,4 @@
 .jumbotron {
-    background-image: url(library.png);
+    background-image: url(book.png);
+    height: 250px;
 }
