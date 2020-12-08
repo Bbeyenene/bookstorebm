@@ -17,11 +17,14 @@
   * [bookstorebm](https://bookstorebm.herokuapp.com/)
   * [usage instructions](#usage-instructions). Moreover, the developer is authorizing a free usage and installation by cloning from the code [Bbeyenene/bookstorebm](https://github.com/Bbeyenene/bookstorebm).
    ## Usage Instructions
-   1.  ![bookstorebm](./client/images/img1.png)
+   1. Home Page 
+    ![bookstorebm](./client/images/img1.png)
 
-   2.  ![bookstorebm](./client/images/img2.png)
+   2. Seach Result
+    ![bookstorebm](./client/images/img2.png)
    
-   3.  ![bookstorebm](./client/images/img3.png)
+   3. Saved Book
+    ![bookstorebm](./client/images/img3.png)
    
    ## Contribution
    [Bbeyenene](https://github.com/Bbeyenene) is the only contrubuter to this project.
