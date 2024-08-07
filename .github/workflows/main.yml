@@ -1,0 +1,61 @@
+name: CI/CD for React and Node.js App
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x]
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run tests
+      run: npm test
+
+    - name: Build application
+      run: npm run build
+
+    - name: Upload production-ready build files
+      uses: actions/upload-artifact@v3
+      with:
+        name: build-files
+        path: build/
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Download build files
+      uses: actions/download-artifact@v3
+      with:
+        name: build-files
+        path: build/
+
+    # Example deployment step (adjust as needed for your hosting provider)
+    - name: Deploy to Server
+      run: echo "Deploying application..."
+      # Here, you would typically run deployment scripts or use deployment actions specific to your hosting provider.
